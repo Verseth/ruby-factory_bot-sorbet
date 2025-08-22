@@ -33,7 +33,7 @@ module Tapioca
 
               method.add_sig do |sig|
                 sig.add_param('strategy', 'Symbol')
-                sig.add_param('args', 'top')
+                sig.add_param('args', 'T.anything')
                 sig.add_param('block', 'NilClass')
                 sig.return_type = klass.to_s
               end
@@ -41,7 +41,7 @@ module Tapioca
               method.add_sig do |sig|
                 sig.type_params << 'R'
                 sig.add_param('strategy', 'Symbol')
-                sig.add_param('args', 'top')
+                sig.add_param('args', 'T.anything')
                 sig.add_param('block', "T.proc.params(arg0: #{klass}).returns(T.type_parameter(:R))")
                 sig.return_type = 'T.type_parameter(:R)'
               end
