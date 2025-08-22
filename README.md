@@ -20,7 +20,43 @@ gem install factory_bot-sorbet
 
 ## Usage
 
-TODO: Write usage instructions here
+This gems adds the module `FactoryBot::Sorbet` which contains
+methods for using all your factories in a type-safe way.
+
+### The problem
+
+Given a factory
+
+```rb
+FactoryBot.define do
+  factory :foo, class_name: "Foo" do
+    bar { "BAR!" }
+  end
+end
+```
+
+Using regular FactoryBot you'd use it like so:
+
+```rb
+FactoryBot.create(:foo, baz: 1) #=> #<Foo:0x0000000106021fc8 @bar="BAR!" @baz=1>
+FactoryBot.build(:foo, baz: 2) #=> #<Foo:0x0000000106021fc8 @bar="BAR!" @baz=2>
+FactoryBot.build_stubbed(:foo, baz: 3) #=> #<Foo:0x0000000106021fc8 @bar="BAR!" @baz=3>
+```
+
+This DSL has one problem when used with sorbet. It is impossible to create
+a static signature for `create`, `build`, `build_stubbed` because they
+return a different type each time based on the first argument.
+
+### The solution
+
+This gem defines unique methods for each factory and defines
+static sorbet signatures for them using a Tapioca compiler.
+
+```rb
+FactoryBot::Sorbet.foo(:create, baz: 1) #=> #<Foo:0x0000000106021fc8 @bar="BAR!" @baz=1>
+FactoryBot::Sorbet.foo(:build, baz: 2) #=> #<Foo:0x0000000106021fc8 @bar="BAR!" @baz=2>
+FactoryBot::Sorbet.foo(:build_stubbed, baz: 3) #=> #<Foo:0x0000000106021fc8 @bar="BAR!" @baz=3>
+```
 
 ## Development
 

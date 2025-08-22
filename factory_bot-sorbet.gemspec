@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ['matmg24@gmail.com']
 
   spec.summary = 'An addon to factory_bot that adds support for static typing with sorbet and tapioca'
-  spec.description = 'TODO: Write a longer description or delete this line.'
+  spec.description = spec.summary
   spec.homepage = 'https://github.com/Verseth/ruby-factory_bot-sorbet'
   spec.required_ruby_version = '>= 3.2.0'
 
@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'booleans', '~> 0.1.3'
+  spec.add_dependency 'factory_bot', '>= 6.0'
   spec.add_dependency 'sorbet-runtime', '>= 0.5'
 
   spec.metadata['rubygems_mfa_required'] = 'true'

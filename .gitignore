@@ -1,8 +1,12 @@
 /.bundle/
 /.yardoc
+/.vscode
 /_yardoc/
 /coverage/
 /doc/
 /pkg/
 /spec/reports/
 /tmp/
+ignore.*
+.byebug_history
+.DS_Store
