@@ -13,6 +13,20 @@ module FactoryBot
   module Sorbet
     extend Sorbet
 
+    # Contains helper methods for tests.
+    # Specifically the `f` method so you can do:
+    #
+    #     f.foo(:create)
+    #
+    # Instead of:
+    #
+    #     FactoryBot::Sorbet.foo(:create)
+    #
+    module TestHelpers
+      #: -> singleton(Sorbet)
+      def f = Sorbet
+    end
+
     class Error < StandardError; end
   end
 end
