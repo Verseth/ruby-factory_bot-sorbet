@@ -1,9 +1,5 @@
 # FactoryBot::Sorbet
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/factory_bot/sorbet`. To experiment with that code, run `bin/console` for an interactive prompt.
-
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
