@@ -1,0 +1,20 @@
+inherit_gem:
+  rubocop-espago: sorbet.yml
+
+AllCops:
+  TargetRubyVersion: 3.2
+
+Naming/BlockForwarding:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Sorbet/ForbidTMust:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Sorbet/ForbidTTypeAlias:
+  Enabled: false
