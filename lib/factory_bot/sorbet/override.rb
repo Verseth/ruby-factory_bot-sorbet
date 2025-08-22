@@ -20,5 +20,5 @@ module FactoryBot
     end
   end
 
-  Internal.extend Sorbet::Internal
+  Internal.prepend Sorbet::Internal
 end
