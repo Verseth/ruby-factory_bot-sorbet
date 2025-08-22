@@ -20,7 +20,12 @@ module Tapioca
       def decorate
         root.create_path(constant) do |mod|
           ::FactoryBot.factories.each do |factory|
-            klass = factory.build_class
+            begin
+              klass = factory.build_class
+            rescue NameError
+              next
+            end
+
             mod.create_method(
               factory.name.to_s,
               parameters: [
