@@ -11,7 +11,7 @@ module FactoryBot
   # Main namespace of the `factory_bot-sorbet` gem
   # that provides support for static typing with sorbet and tapioca to `factory_bot`.
   module Sorbet
-    extend self
+    extend Sorbet
 
     class Error < StandardError; end
   end
